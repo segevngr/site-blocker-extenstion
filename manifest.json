@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "Site Blocker",
+  "version": "0.1",
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "content_security_policy": "script-src 'self' https://apis.google.com https://code.jquery.com/; object-src 'self'",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "browser_action": {
+    "default_icon": "block-icon.png",
+    "default_popup": "popup/index.html",
+    "default_title": "Site Blocker App"
+  },
+  "icons": {
+    "16": "block-icon.png",
+    "48": "block-icon.png",
+    "128": "block-icon.png"
+  }
+}
